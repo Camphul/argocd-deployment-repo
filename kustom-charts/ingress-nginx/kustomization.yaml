@@ -4,7 +4,7 @@ kind: Kustomization
 helmCharts:
 - name: ingress-nginx
   releaseName: ingress
-  version: 4.0.6
+  version: 4.2.3
   repo: https://kubernetes.github.io/ingress-nginx
 
 namespace: default
