@@ -5,7 +5,7 @@ resources:
   - base/argocd-namespace.yaml
   - base/argocd-cm.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.11/manifests/install.yaml
-  - base/argocd-ingress.yaml
+  #- base/argocd-ingress.yaml
   - repos/
 
 patchesStrategicMerge:

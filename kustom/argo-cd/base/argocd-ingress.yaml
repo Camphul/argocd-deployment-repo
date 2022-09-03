@@ -9,10 +9,10 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   rules:
-  - host: argocd.pi.logic-shift.com
+  - host: 'argocd.pi.logic-shift.com'
     http:
       paths:
-      - path: /
+      - path: '/'
         pathType: Prefix
         backend:
           service:
