@@ -397,7 +397,7 @@ alertmanager:
     ## Image of Alertmanager
     ##
     image:
-      repository: quay.io/prometheus/alertmanager
+      repository: docker.io/prometheus/alertmanager
       tag: v0.22.2
       sha: ""
 
@@ -626,7 +626,7 @@ grafana:
   namespaceOverride: "monitoring"
 
   # grafana.ini:
-  #   dashboards: 
+  #   dashboards:
   #     default_home_dashboard_path: /tmp/dashboards/General_Overview.json
   #   users:
   #     viewers_can_edit: false
@@ -644,7 +644,7 @@ grafana:
   # ldap:
   #   enabled: true
   #   existingSecret: "grafana"
-  
+
   ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
   ##
   forceDeployDatasources: false
@@ -1654,23 +1654,23 @@ prometheusOperator:
   ## Prometheus-operator image
   ##
   image:
-    repository: quay.io/prometheus-operator/prometheus-operator
+    repository: docker.io/prometheus-operator/prometheus-operator
     tag: v0.52.0
     sha: ""
     pullPolicy: IfNotPresent
 
   ## Prometheus image to use for prometheuses managed by the operator
   ##
-  # prometheusDefaultBaseImage: quay.io/prometheus/prometheus
+  # prometheusDefaultBaseImage: docker.io/prometheus/prometheus
 
   ## Alertmanager image to use for alertmanagers managed by the operator
   ##
-  # alertmanagerDefaultBaseImage: quay.io/prometheus/alertmanager
+  # alertmanagerDefaultBaseImage: docker.io/prometheus/alertmanager
 
   ## Prometheus-config-reloader image to use for config and rule reloading
   ##
   prometheusConfigReloaderImage:
-    repository: quay.io/prometheus-operator/prometheus-config-reloader
+    repository: docker.io/prometheus-operator/prometheus-config-reloader
     tag: v0.52.0
     sha: ""
 
@@ -1685,7 +1685,7 @@ prometheusOperator:
   ## Thanos side-car image when configured
   ##
   thanosImage:
-    repository: quay.io/thanos/thanos
+    repository: docker.io/thanos/thanos
     tag: v0.17.2
     sha: ""
 
@@ -2078,7 +2078,7 @@ prometheus:
     ## Image of Prometheus.
     ##
     image:
-      repository: quay.io/prometheus/prometheus
+      repository: docker.io/prometheus/prometheus
       tag: v2.28.1
       sha: ""
 
