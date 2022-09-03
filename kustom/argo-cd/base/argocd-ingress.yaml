@@ -5,11 +5,11 @@ metadata:
   namespace: argocd
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   rules:
-  - host: insert.url.here
+  - host: argocd.pi.logic-shift.com
     http:
       paths:
       - path: /
@@ -19,3 +19,4 @@ spec:
             name: argocd-server
             port:
               name: https
+              number: 443
