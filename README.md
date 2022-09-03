@@ -30,7 +30,7 @@ When using a public repo we're not going to need to setup sealed secrets (At lea
    ```yaml
    - base/argocd-repo-key.yaml
    ```
-  
+
 **End of public repo setup**
 
 ### Deployment
@@ -49,19 +49,20 @@ When using a public repo we're not going to need to setup sealed secrets (At lea
 
 4. Open a shell in the cloned repo and run the following command to initialize argo-cd:
    ```bash
-   kustomize build kustom/argo-cd/ | kubectl apply -n argocd -f -
+kubectl kustomize ./kustom/argo-cd/ | tee kustomized-build.yaml
+kubectl apply -n argocd -f kustomized-build.yaml
    ```
 
 5. Run the following command to get the argo password:
    ```bash
-   kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
    ```
-   
-6. Port forward the webui to your local port 8080:
+
+6. Port forward the webui to your local port 8181:
    ```bash
-   kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl port-forward svc/argocd-server -n argocd 8181:443
    ```
-   
+
 7. Open the argo-cd ui, login, and click on the settings cog in the left bar. Add your forked github repo and generate a new ssh key that your're going to be using (make sure you've added it to your github account). Once finished, click on connect.
 
 8. Now that the repo credentials have been added to argo-cd we're going to add our apps to argo-cd with the following command:
@@ -84,7 +85,7 @@ The argo-cd app will encounter a sync error if you're using a private repo, this
     kubeseal --controller-namespace sealed-secrets --format yaml < key.yaml > sealedkey.yaml
     mv sealedkey.yaml kustom/argo-cd/base/argocd-repo-key.yaml
     ```
-    
+
 12. Change the name key's value in kustom/argo-cd/base/argocd-repo-key.yaml to argo-github-key
 
 13. Commit this change and push it to the repo in order for argo to finish the setup for argo-cd to manage the cluster and itself.

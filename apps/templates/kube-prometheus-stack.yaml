@@ -18,7 +18,7 @@ spec:
   project: default
   source:
     path: kustom-charts/kube-prometheus-stack
-    repoURL: git@github.com:SelfhostedPro/argo-cd-aoa-boilerplate.git
+    repoURL: git@github.com:Camphul/argocd-deployment-repo.git
     targetRevision: master
     plugin:
       name: kustomized-helm
